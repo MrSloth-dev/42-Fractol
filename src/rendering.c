@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rendering.c                                        :+:      :+:    :+:   */
+/*   rendering_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joao-pol <joao-pol@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 15:09:45 by joao-pol          #+#    #+#             */
-/*   Updated: 2024/06/13 16:52:18 by joao-pol         ###   ########.fr       */
+/*   Updated: 2024/06/11 14:21:47 by joao-pol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,4 @@ void	ft_choose_fractal(t_point *z, t_point *c, t_vars *vars)
 		*c = (t_point){.x = vars->julia_x, .y = vars->julia_y};
 	else
 		*c = (t_point){.x = z->x, .y = z->y};
-}
-
-t_point	ft_calc(t_point z, t_point c, t_vars *vars)
-{
-	vars->mousetrack = vars->mousetrack;
-	return (ft_sumsquare(z, c));
 }

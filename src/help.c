@@ -34,8 +34,9 @@ void ft_helpmenu(t_vars *vars)
 		mlx_string_put(vars->mlx, vars->win, WIN_WIDTH - 230, 80, WHITE, "'+' to increment iterations");
 		mlx_string_put(vars->mlx, vars->win, WIN_WIDTH - 230, 100, WHITE, "'-' to decrement iterations");
 		mlx_string_put(vars->mlx, vars->win, WIN_WIDTH - 230, 120, WHITE, "Press 'r' to reset");
+		mlx_string_put(vars->mlx, vars->win, WIN_WIDTH - 230, 140, WHITE, "MousePressLeft to follow cursor");
 		if (!ft_strncmp("julia", vars->name, 5))
-			mlx_string_put(vars->mlx, vars->win, WIN_WIDTH - 230, 140, WHITE, "Press 'j' to activate mouse listener");
+			mlx_string_put(vars->mlx, vars->win, WIN_WIDTH - 230, 160, WHITE, "Press 'j' to activate mouse listener");
 	}
 	else
 		mlx_string_put(vars->mlx, vars->win, WIN_WIDTH - 230, 20, WHITE, "Press 'h' to open help");
@@ -47,9 +48,9 @@ static int	ft_refreshmenu(t_vars *vars)
 	if (vars->help)
 	{
 		if (ft_strncmp("julia", vars->name, 5))
-			vars->menu->img = mlx_new_image(vars->mlx, 225, 120);
-		else
 			vars->menu->img = mlx_new_image(vars->mlx, 225, 140);
+		else
+			vars->menu->img = mlx_new_image(vars->mlx, 225, 170);
 		vars->menu->addr = mlx_get_data_addr(vars->menu->img,
 				&vars->menu->bits_per_pixel,
 				&vars->menu->size_line, &vars->menu->endian);

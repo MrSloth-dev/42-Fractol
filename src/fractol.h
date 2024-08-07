@@ -22,11 +22,9 @@
 # include <X11/X.h>
 
 # define ERR_MSG_INPUT "WARNING!\nUsage\n\t\"./fractol mandelbrot\"\
-	\n\tor\n\t\"./fractol_bonus julia <real> <imag>\"\n"
-# define ERR_MSG_INPUT_BONUS "WARNING!\nUsage\n\t\"./fractol_bonus mandelbrot\"\
-	\n\tor\n\t\"./fractol_bonus julia <real> <imag>\"\n \
-	or\n\t\"./fractol_bonus newton\"\n \
-	or\n\t\"./fractol_bonus quartic\"\n"
+	\n\tor\n\t\"./fractol julia <real> <imag>\"\n \
+	or\n\t\"./fractol newton\"\n \
+	or\n\t\"./fractol quartic\"\n"
 # define ERR_INPUT 1
 # define ERR_MSG_MLX "Error in MLX"
 # define ERR_MLX 2

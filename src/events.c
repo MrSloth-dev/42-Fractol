@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   events.c                                           :+:      :+:    :+:   */
+/*   events_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joao-pol <joao-pol@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 14:59:15 by joao-pol          #+#    #+#             */
-/*   Updated: 2024/06/13 16:48:12 by joao-pol         ###   ########.fr       */
+/*   Updated: 2024/06/13 16:53:56 by joao-pol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@ int	key_handler(int keysym, t_vars *vars)
 {
 	if (keysym == XK_Escape || keysym == XK_q)
 		close_handler(vars);
+	else if (keysym == XK_a || keysym == XK_Left)
+		vars->offset_x -= (0.25 * vars->scale);
+	else if (keysym == XK_d || keysym == XK_Right)
+		vars->offset_x += (0.25 * vars->scale);
+	else if (keysym == XK_w || keysym == XK_Up)
+		vars->offset_y -= (0.25 * vars->scale);
+	else if (keysym == XK_s || keysym == XK_Down)
+		vars->offset_y += (0.25 * vars->scale);
 	else if (keysym == 65451)
 		vars->iter.max += 1;
 	else if ((keysym == XK_minus || keysym == 65453) && vars->iter.max > 1)
@@ -27,12 +35,18 @@ int	key_handler(int keysym, t_vars *vars)
 		vars->scale = 1;
 		vars->iter.max = 42;
 	}
-	ft_refreshframe(vars);
+	else if (keysym == XK_j)
+		vars->toggle_julia = !vars->toggle_julia;
+	help_handler(keysym, vars);
 	return (0);
 }
 
 int	mouse_handler(int mousecode, int x, int y, t_vars *vars)
 {
+	if (mousecode == 1)
+		vars->mousetrack = !vars->mousetrack;
+	else if (mousecode == 2)
+		vars->pointer = !vars->pointer;
 	if (mousecode == 4)
 	{
 		vars->scale *= 0.9;
@@ -46,15 +60,19 @@ int	mouse_handler(int mousecode, int x, int y, t_vars *vars)
 	}
 	else if (mousecode == 5)
 		vars->scale /= 0.9;
+	if (vars->toggle_julia)
+		mlx_hook(vars->win, MotionNotify, PointerMotionMask, julia_track, vars);
 	ft_refreshframe(vars);
 	return (0);
 }
 
 int	close_handler(t_vars *vars)
 {
+	mlx_destroy_image(vars->mlx, vars->menu->img);
 	mlx_destroy_image(vars->mlx, vars->img->img);
 	mlx_destroy_window(vars->mlx, vars->win);
 	mlx_destroy_display(vars->mlx);
+	free(vars->menu);
 	free(vars->img);
 	free(vars->mlx);
 	exit (0);
@@ -83,5 +101,6 @@ int	ft_refreshframe(t_vars *vars)
 	if (vars->pointer)
 		my_mlx_pixel_put(vars->img, IMG_WIDTH / 2, IMG_HEIGHT / 2, WHITE);
 	ft_renderimage(vars);
+	ft_helpmenu(vars);
 	return (0);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   setup.c                                            :+:      :+:    :+:   */
+/*   setup_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joao-pol <joao-pol@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:01:57 by joao-pol          #+#    #+#             */
-/*   Updated: 2024/06/13 15:18:22 by joao-pol         ###   ########.fr       */
+/*   Updated: 2024/06/13 16:41:17 by joao-pol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ static void	ft_mlx_init(t_vars *vars)
 	vars->img->addr = mlx_get_data_addr(vars->img->img,
 			&vars->img->bits_per_pixel, &vars->img->size_line,
 			&vars->img->endian);
+	ft_menu_init(vars);
 }
 
 static void	ft_events_init(t_vars *vars)
@@ -76,6 +77,7 @@ static void	ft_events_init(t_vars *vars)
 	mlx_hook(vars->win, DestroyNotify, StructureNotifyMask, close_handler,
 		vars);
 	mlx_hook(vars->win, MotionNotify, PointerMotionMask, julia_track, vars);
+	ft_refreshframe(vars);
 }
 
 static void	ft_mallocerror(void)

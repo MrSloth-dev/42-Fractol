@@ -25,7 +25,7 @@ t_point	ft_newton(t_point z, t_point c)
 	t_point	one;
 	t_point	half;
 
-	c = (t_point){.x = 1, .y = 1};
+	(void)c;
 	one = (t_point){.x = 1, .y = 1};
 	half = (t_point){.x = 0.5, .y = 0.5};
 	square = ft_multiply(z, z);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joao-pol <joao-pol@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 11:54:37 by joao-pol          #+#    #+#             */
-/*   Updated: 2024/06/13 15:20:33 by joao-pol         ###   ########.fr       */
+/*   Updated: 2024/06/13 16:54:18 by joao-pol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,13 @@ void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 static int	ft_check_errors(int argc, char *argv[])
 {
 	if ((!ft_strncmp(argv[1], "mandelbrot", 10) && argc == 2)
-		|| (!ft_strncmp(argv[1], "julia", 5) && argc == 4))
+		|| (!ft_strncmp(argv[1], "julia", 5) && argc == 4)
+		|| (!ft_strncmp(argv[1], "quartic", 7) && argc == 2)
+		|| (!ft_strncmp(argv[1], "newton", 6) && argc == 2))
 		return (0);
-	if (!ft_strncmp("./fractol", argv[0], 10))
+	else
 	{
 		perror(ERR_MSG_INPUT);
 		exit (ERR_INPUT);
 	}
-	return (0);
 }
