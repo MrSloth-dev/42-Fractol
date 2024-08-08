@@ -58,10 +58,10 @@ The program is divided by 5 main parts: TODO: extend the explanation in each poi
 3. Calculate the iteractions and color
     1. For understanding better how the fractals representation is rendered check this video.[Youtube](https://www.youtube.com/watch?v=uc2yok_pLV4)
         - The number of iterations is calculated by the number of times that the mod squared:
-        $$ Real^2 + Imag^2 $$ excceed the value of 4 ($$ 2^2 $$), this is like Pyhtagoreas Theorem to measure the distance between two points, by having the coordinates. In our case the coordinates are x for the Real part of the complex number and y for the imaginary.
-        - In Mandelbrot and Julia, the sequence to calculate the iterations is $$ Zn+1 = Zn^2 +c $$, note that Z and c are complex numbers so we need to do a more complex (pun intended) calculations, like Polynomials.j
-        - For Newton Fractal we have $$ z - {0.5 * z^3 - 1\over   3*z^2} $$
-        - For Quartic Fractal we have $$ z^4 + c $$
+        - $` Real^2 + Imag^2 `$ excceed the value of 4 ($` 2^2 `$), this is like Pyhtagoreas Theorem to measure the distance between two points, by having the coordinates. In our case the coordinates are x for the Real part of the complex number and y for the imaginary.
+        - In Mandelbrot and Julia, the sequence to calculate the iterations is $` Zn+1 = Zn^2 +c `$, note that Z and c are complex numbers so we need to do a more complex (pun intended) calculations, like Polynomials.
+        - For Newton Fractal we have $` z - {0.5 * z^3 - 1\over   3*z^2} `$
+        - For Quartic Fractal we have $` z^4 + c `$
     2. Now that we understand how to calculate the number of iterations, the Color calculation is easier.
         - The Color is an int represented in Hexadecimal, so 0x000000 is equal to 0 and the color BLACK. and 0xffffff is equal to 16777215 and the color WHITE.
         - It's easier to understand the colors as number if we represent 0x ff ff ff, as 0x is telling us that the number is in hexadecimal the first ff is the RED the second ff is the GREEN and the third is the BLUE, so if you add them we have.... [RGB](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://pt.wikipedia.org/wiki/RGB&ved=2ahUKEwicsKbYxOWHAxWIRqQEHSH-DZYQFnoECBMQAQ&usg=AOvVaw1b0slebKyncPhmU0yrybU8)!
