@@ -14,10 +14,10 @@
 
 void	draw_fractal(double x, double y, t_vars *vars)
 {
-	t_point	z;
-	t_point	c;
-	int		color;
-	int		iter;
+	t_point		c;
+	t_point		z;
+	int			color;
+	int			iter;
 
 	iter = 0;
 	c = (t_point){.x = 0, .y = 0};

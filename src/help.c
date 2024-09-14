@@ -19,27 +19,37 @@ int	help_handler(int keysym, t_vars *vars)
 	if (keysym == XK_h)
 		vars->help = !vars->help;
 	ft_refreshframe(vars);
-	//ft_helpmenu(vars);
+	ft_helpmenu(vars);
 	return (0);
 }
 
-void ft_helpmenu(t_vars *vars)
+void	ft_helpmenu(t_vars *vars)
 {
+	auto int offset = WIN_WIDTH - 230;
 	ft_refreshmenu(vars);
-	if(vars->help)
+	if (vars->help)
 	{
-		mlx_string_put(vars->mlx, vars->win, WIN_WIDTH - 230, 20, WHITE, "Press 'h' to close help        MENU");
-		mlx_string_put(vars->mlx, vars->win, WIN_WIDTH - 230, 40, WHITE, "Scroll to Zoom");
-		mlx_string_put(vars->mlx, vars->win, WIN_WIDTH - 230, 60, WHITE, "Keys or WASD to Move");
-		mlx_string_put(vars->mlx, vars->win, WIN_WIDTH - 230, 80, WHITE, "'+' to increment iterations");
-		mlx_string_put(vars->mlx, vars->win, WIN_WIDTH - 230, 100, WHITE, "'-' to decrement iterations");
-		mlx_string_put(vars->mlx, vars->win, WIN_WIDTH - 230, 120, WHITE, "Press 'r' to reset");
-		mlx_string_put(vars->mlx, vars->win, WIN_WIDTH - 230, 140, WHITE, "MousePressLeft to follow cursor");
+		mlx_string_put(vars->mlx, vars->win, offset, 20, WHITE,
+			"Press 'h' to close help        MENU");
+		mlx_string_put(vars->mlx, vars->win, offset, 40, WHITE,
+			"Scroll to Zoom");
+		mlx_string_put(vars->mlx, vars->win, offset, 60, WHITE,
+			"Keys or WASD to Move");
+		mlx_string_put(vars->mlx, vars->win, offset, 80, WHITE,
+			"'+' to increment iterations");
+		mlx_string_put(vars->mlx, vars->win, offset, 100, WHITE,
+			"'-' to decrement iterations");
+		mlx_string_put(vars->mlx, vars->win, offset, 120, WHITE,
+			"Press 'r' to reset");
+		mlx_string_put(vars->mlx, vars->win, offset, 140, WHITE,
+			"MousePressLeft to follow cursor");
 		if (!ft_strncmp("julia", vars->name, 5))
-			mlx_string_put(vars->mlx, vars->win, WIN_WIDTH - 230, 160, WHITE, "Press 'j' to activate mouse listener");
+			mlx_string_put(vars->mlx, vars->win, offset, 160, WHITE,
+				"Press 'j' to activate mouse listener");
 	}
 	else
-		mlx_string_put(vars->mlx, vars->win, WIN_WIDTH - 230, 20, WHITE, "Press 'h' to open help");
+		mlx_string_put(vars->mlx, vars->win, offset, 20, WHITE,
+			"Press 'h' to open help");
 }
 
 static int	ft_refreshmenu(t_vars *vars)
