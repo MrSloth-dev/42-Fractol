@@ -1,7 +1,7 @@
 # Welcome to Fract-ol
 <p align="center">
 This project is the first graphical project in 42's Common Core.
-<img src="https://media.licdn.com/dms/image/D4D22AQELtQ-J7KlTxQ/feedshare-shrink_2048_1536/0/1718983331045?e=1726099200&v=beta&t=LdY0tMwPj98_X8AGRbzH-dsZe0xfyW-G3gDN-dy0DP8" width="800" height="600" border="10"/>
+<img src="https://raw.githubusercontent.com/MrSloth-dev/42-Fractol/main/assets/julia.jpeg" width="800" height="600" border="10"/>
 </p>
   
 </p>
